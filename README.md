@@ -30,4 +30,4 @@ Edit the Axios call in `index.js` to use your preferred public API.
     - git pull origin main
 
 
-This downloads the LICENSE file you created on GitHub into your local repo.
+This downloads the LICENSE file you created on GitHub into your local repo.git
