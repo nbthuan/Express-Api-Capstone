@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Joke Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="/styles/main.css" rel="stylesheet" />
+</head>
+<body>
+  <main class="container">
+    <h1>😂 Hi <%= name %>!</h1>
+
+    <form class="controls" action="/joke" method="POST">
+      <label>
+        Your name
+        <input type="text" name="name" value="<%= name %>" placeholder="e.g., Alice" />
+      </label>
+
+      <label>
+        Category
+        <select name="category">
+          <option value="Any" <%= category === 'Any' ? 'selected' : '' %>>Any</option>
+          <option value="Programming" <%= category === 'Programming' ? 'selected' : '' %>>Programming</option>
+          <option value="Misc" <%= category === 'Misc' ? 'selected' : '' %>>Misc</option>
+          <option value="Pun" <%= category === 'Pun' ? 'selected' : '' %>>Pun</option>
+          <option value="Spooky" <%= category === 'Spooky' ? 'selected' : '' %>>Spooky</option>
+          <option value="Christmas" <%= category === 'Christmas' ? 'selected' : '' %>>Christmas</option>
+        </select>
+      </label>
+
+      <button type="submit">Tell me a joke</button>
+    </form>
+
+    <% if (error) { %>
+      <p class="error"><%= error %></p>
+    <% } else if (joke) { %>
+      <article class="card">
+        <p><%= joke %></p>
+        <p class="muted">Source: <a href="https://jokeapi.dev" target="_blank" rel="noreferrer">JokeAPI</a></p>
+      </article>
+    <% } %>
+  </main>
+</body>
+</html>
